@@ -1,0 +1,29 @@
+{% extends 'basic/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'basic/crousal.html' %}
+
+    <div class='row serviesRow'>
+
+    {%for i in servies %}
+        <div class='col-sm-4'>
+            <div class="card" style="width: 18rem;">
+            <img src="https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{i.name}}</h5>
+                <p class="card-text">{{i.price}}</p>
+                <p class="card-text">{{i.duration}}</p>
+                <a href={% url 'service' i.id %} class="btn btn-primary">Go somewhere</a>
+                <button  class = 'addToCart' data-product = {{i.id}} data-action = "add"> Add? </button>
+            </div>
+            </div>
+        </div>
+    {% endfor %}
+    <style>
+        .serviesRow{
+            margin: 20px;
+        }
+    </style>
+    </div>
+{% endblock content %}

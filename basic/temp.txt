@@ -1,0 +1,15 @@
+if request.method =='POST':
+        emailId = request.POST.get('emailId' ,'')
+        name = request.POST.get('nameId' , '')
+        phone = request.POST.get('phoneId' , '')
+
+        subject = 'Call back infomation'
+        message = emailId +'' + phone + '' + name + '.'
+        if subject and emailId and name and phone:
+            try:
+                send_mail(subject, message , emailId , ['rachit.saxena42@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return HttpResponse('<h1> Your email was recorded' + name + '</h1>')
+        else:
+            return HttpResponse('Make sure all fields are entered and valid.')

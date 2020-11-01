@@ -1,0 +1,15 @@
+{% extends 'basic/base.html' %}
+
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+<h3>Name: {{obj.name}}</h3>
+<h3> Desc : {{obj.desc}} </h3>
+<h3> Image url : {{obj.picture1.url}} </h3>
+    {% if obj.picture1 %}
+    <img src = "{{obj.picture1}}" />
+{% endif %}
+{% endblock content %}

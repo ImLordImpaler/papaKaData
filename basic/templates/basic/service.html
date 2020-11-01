@@ -1,0 +1,28 @@
+{% extends 'basic/base.html' %}
+
+
+{% block content %}
+
+    <div class='row'>
+        <div class='col-sm-6 leftSide'>
+        </div>
+        <div class='col-sm-6 rightSide'>
+            <div class='container'>
+                <h3>{{service.name}} </h3>
+                <p>Rs: {{service.price}}/-  </p>
+                <p>Duration: {{service.duration}} </p>
+                <a href='' class='btn btn-lg btn-outline-danger'>Add To Cart? </a>
+            </div>
+        </div>
+    </div>
+    <style>
+        .leftSide{
+            border: 1px solid black;
+            
+        }
+        .rightSide{
+            padding-top: 250px;
+            padding-left: 50px;
+        }
+    </style>
+{% endblock content %}
